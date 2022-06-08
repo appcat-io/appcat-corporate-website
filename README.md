@@ -1,4 +1,6 @@
-# 🐞 Gulp starter template for CodyFrame
+# AppCat corprate marketing website.
+## Made with CodyFrame
+## 🐞 Gulp starter template for CodyFrame
 
 To start your web project, run the following two commands:
 1. Install the node modules.
