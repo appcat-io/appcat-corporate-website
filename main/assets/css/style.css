@@ -12240,6 +12240,243 @@ mark {
 /*! purgecss start ignore */
 /* -------------------------------- 
 
+File#: _1_3d-cards
+Title: 3D Cards
+Descr: Images in a 3D space
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.td-cards {
+  position: relative;
+  z-index: 1;
+}
+
+.td-cards__card > img {
+  display: block;
+  width: 100%;
+}
+
+.td-cards--v1 {
+  --card-ratio: 585/960;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(50% / (var(--card-ratio)));
+}
+.td-cards--v1 .td-cards__inner {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  perspective: 1000px;
+}
+.td-cards--v1 .td-cards__card {
+  width: 50%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  pointer-events: auto;
+  will-change: transform;
+  transform: rotateX(60deg) rotateZ(-60deg);
+  transition-property: transform, top;
+  transition-duration: 0.4s;
+  transition-timing-function: var(--ease-out);
+}
+.td-cards--v1 .td-cards__card:nth-child(1) {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0px 0.2px rgba(0, 0, 0, 0.02), 0 0px 0.5px rgba(0, 0, 0, 0.028), 0 0px 1px rgba(0, 0, 0, 0.035), 0 0px 1.8px rgba(0, 0, 0, 0.042), 0 0px 3.3px rgba(0, 0, 0, 0.05), 0 0px 8px rgba(0, 0, 0, 0.07);
+}
+.td-cards--v1 .td-cards__card:nth-child(2),
+.td-cards--v1 .td-cards__card:nth-child(3) {
+  position: absolute;
+}
+.td-cards--v1 .td-cards__card:nth-child(2) {
+  z-index: 2;
+  top: calc(-10% - var(--top-offset, 0%));
+  box-shadow: 0 0px 1.1px rgba(0, 0, 0, 0.02), 0 0px 2.5px rgba(0, 0, 0, 0.028), 0 0px 4.8px rgba(0, 0, 0, 0.035), 0 0px 8.5px rgba(0, 0, 0, 0.042), 0 0px 15.9px rgba(0, 0, 0, 0.05), 0 0px 38px rgba(0, 0, 0, 0.07);
+}
+.td-cards--v1 .td-cards__card:nth-child(3) {
+  z-index: 3;
+  top: calc(-20% - var(--top-offset, 0%));
+  box-shadow: 0 0px 2.4px rgba(0, 0, 0, 0.022), 0 0px 5.9px rgba(0, 0, 0, 0.032), 0 0px 11px rgba(0, 0, 0, 0.04), 0 0px 19.7px rgba(0, 0, 0, 0.048), 0 0px 36.8px rgba(0, 0, 0, 0.058), 0 0px 88px rgba(0, 0, 0, 0.08);
+}
+.td-cards--v1 .td-cards__card:hover ~ * {
+  --top-offset: 15%;
+}
+
+.td-cards--v2 {
+  --card-ratio: 585/960;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(50% / (var(--card-ratio)) + 10%);
+}
+.td-cards--v2 .td-cards__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+.td-cards--v2 .td-cards__card {
+  position: absolute;
+  width: 50%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translate3d(0);
+  will-change: transform;
+  transition: transform 0.4s var(--ease-out);
+}
+.td-cards--v2 .td-cards__card:nth-child(1) {
+  z-index: 1;
+  transform: translateX(-30%) rotateY(45deg);
+}
+.td-cards--v2 .td-cards__card:nth-child(2) {
+  z-index: 2;
+  transform: translateX(30%) rotateY(45deg);
+}
+.td-cards--v2:hover .td-cards__card:nth-child(1) {
+  transform: translateY(-5%) translateX(-30%) rotateY(0deg);
+}
+.td-cards--v2:hover .td-cards__card:nth-child(2) {
+  transform: translateY(5%) translateX(30%) rotateY(0deg);
+}
+
+.td-cards--v3 {
+  --card-ratio: 960/640;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% / (var(--card-ratio)));
+  perspective: 1500px;
+}
+.td-cards--v3 .td-cards__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: rotateX(45deg);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.4s var(--ease-out);
+}
+.td-cards--v3 .td-cards__card {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  will-change: transform;
+  transition: transform 0.4s var(--ease-out);
+}
+.td-cards--v3 .td-cards__card:nth-child(1) {
+  transform: translateZ(-50px);
+  box-shadow: 0 0px 0.2px rgba(0, 0, 0, 0.02), 0 0px 0.5px rgba(0, 0, 0, 0.028), 0 0px 1px rgba(0, 0, 0, 0.035), 0 0px 1.8px rgba(0, 0, 0, 0.042), 0 0px 3.3px rgba(0, 0, 0, 0.05), 0 0px 8px rgba(0, 0, 0, 0.07);
+}
+.td-cards--v3 .td-cards__card:nth-child(2) {
+  box-shadow: 0 0px 1.1px rgba(0, 0, 0, 0.02), 0 0px 2.5px rgba(0, 0, 0, 0.028), 0 0px 4.8px rgba(0, 0, 0, 0.035), 0 0px 8.5px rgba(0, 0, 0, 0.042), 0 0px 15.9px rgba(0, 0, 0, 0.05), 0 0px 38px rgba(0, 0, 0, 0.07);
+}
+.td-cards--v3 .td-cards__card:nth-child(3) {
+  transform: translateZ(50px);
+  box-shadow: 0 0px 2.4px rgba(0, 0, 0, 0.022), 0 0px 5.9px rgba(0, 0, 0, 0.032), 0 0px 11px rgba(0, 0, 0, 0.04), 0 0px 19.7px rgba(0, 0, 0, 0.048), 0 0px 36.8px rgba(0, 0, 0, 0.058), 0 0px 88px rgba(0, 0, 0, 0.08);
+}
+.td-cards--v3:hover .td-cards__inner {
+  transform: rotateX(0deg);
+}
+.td-cards--v3:hover .td-cards__card:nth-child(1),
+.td-cards--v3:hover .td-cards__card:nth-child(3) {
+  transform: translateZ(0px);
+}
+
+.td-cards--v4, .td-cards--v5 {
+  --card-ratio: 960/640;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% / (var(--card-ratio)) + 10%);
+}
+.td-cards--v4 .td-cards__inner, .td-cards--v5 .td-cards__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1500px;
+}
+.td-cards--v4 .td-cards__card, .td-cards--v5 .td-cards__card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform: var(--rotation);
+  -webkit-animation: td-card-v4-floating-anim 5s infinite;
+          animation: td-card-v4-floating-anim 5s infinite;
+}
+.td-cards--v4 .td-cards__shadow, .td-cards--v5 .td-cards__shadow {
+  position: absolute;
+  bottom: -0.1em;
+  width: 100%;
+  left: 0%;
+  height: 0.2em;
+  border-radius: 100%;
+  background-color: hsla(0deg, 0%, 0%, 0.25);
+  transform: scaleX(0.9);
+  filter: blur(5px);
+  -webkit-animation: td-card-shadow-anim 5s infinite;
+          animation: td-card-shadow-anim 5s infinite;
+}
+.td-cards--v4 .td-cards__shadow::before, .td-cards--v5 .td-cards__shadow::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  background-color: hsla(0deg, 0%, 0%, 0.15);
+  filter: blur(5px);
+}
+
+.td-cards--v4 .td-cards__card {
+  --rotation: rotate3d(0.5, 0.9, 0, 20deg);
+}
+
+.td-cards--v5 .td-cards__card {
+  --rotation: rotate3d(0.5, -0.9, 0, 20deg);
+}
+
+@-webkit-keyframes td-card-v4-floating-anim {
+  0%, 100% {
+    transform: translateY(0) var(--rotation);
+  }
+  50% {
+    transform: translateY(5%) var(--rotation);
+  }
+}
+
+@keyframes td-card-v4-floating-anim {
+  0%, 100% {
+    transform: translateY(0) var(--rotation);
+  }
+  50% {
+    transform: translateY(5%) var(--rotation);
+  }
+}
+/* -------------------------------- 
+
 File#: _1_3d-text-block
 Title: 3D Text Block
 Descr: A text block that rotates on hover
@@ -15765,6 +16002,82 @@ Usage: codyhouse.co/license
 
 /* -------------------------------- 
 
+File#: _1_immersive-section-transition
+Title: Immersive Section Transition
+Descr: A media element that animates to a full-screen block, before transitioning to the next section of content
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.js .immerse-section-tr {
+  position: relative;
+  --immerse-section-tr-opacity: 0;
+}
+.js .immerse-section-tr__media {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.js .immerse-section-tr--disabled .immerse-section-tr__media {
+  position: relative;
+}
+.js .immerse-section-tr__figure {
+  will-change: transform;
+  pointer-events: auto;
+  position: relative;
+  height: 0;
+}
+.js .immerse-section-tr__figure > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.js .immerse-section-tr__figure--16-9 {
+  padding-bottom: 56.25%;
+}
+.js .immerse-section-tr__figure--3-4 {
+  padding-bottom: 133.33%;
+}
+.js .immerse-section-tr__content {
+  position: relative;
+  z-index: 3;
+  transform: translateZ(0);
+}
+.js .immerse-section-tr__content::after, .js .immerse-section-tr__content::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-bg);
+  opacity: var(--immerse-section-tr-opacity, 0);
+  pointer-events: none;
+}
+.js .immerse-section-tr__content::before {
+  height: 100%;
+  z-index: -1;
+}
+.js .immerse-section-tr__content::after {
+  height: 100vh;
+  transform: translateY(-100%);
+}
+.js .immerse-section-tr--disabled .immerse-section-tr__content::before {
+  opacity: 1;
+}
+
+html:not(.js) .immerse-section-tr__content {
+  background-color: var(--color-bg);
+}
+
+/* -------------------------------- 
+
 File#: _1_input-icon
 Title: Input Icon
 Descr: Icon within form control
@@ -18931,6 +19244,146 @@ Usage: codyhouse.co/license
   margin: var(--space-lg) 0;
 }
 
+/* -------------------------------- 
+
+File#: _2_coming-soon-v2
+Title: Coming Soon v2
+Descr: Coming soon template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.coming-soon-v2 {
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon-v2__social-btn {
+  position: relative;
+  --btn-size: 32px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: inline-flex;
+}
+.coming-soon-v2__social-btn .icon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: auto;
+  font-size: 16px;
+  color: var(--color-contrast-high);
+  transition: 0.3s;
+}
+.coming-soon-v2__social-btn::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-contrast-higher);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s, transform 0.3s var(--ease-out);
+}
+.coming-soon-v2__social-btn:hover .icon {
+  color: var(--color-bg);
+}
+.coming-soon-v2__social-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* -------------------------------- 
+
+File#: _2_coming-soon
+Title: Coming Soon
+Descr: Coming soon template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.coming-soon {
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon__figure {
+  position: relative;
+  height: 40vh;
+}
+.coming-soon__figure img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.coming-soon__social-btn {
+  --btn-size: 32px;
+  --icon-size: 16px;
+  position: relative;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: inline-flex;
+}
+.coming-soon__social-btn .icon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: auto;
+  font-size: var(--icon-size);
+  color: var(--color-contrast-high);
+}
+.coming-soon__social-btn::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0.5);
+  transition: 0.3s var(--ease-out);
+}
+.coming-soon__social-btn:hover::before {
+  background-color: var(--color-contrast-lower);
+  transform: scale(1);
+}
+
+@media (min-width: 64rem) {
+  .coming-soon__figure {
+    height: auto;
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+            clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    -webkit-animation: coming-soon-figure-anim 0.6s var(--ease-out) forwards;
+            animation: coming-soon-figure-anim 0.6s var(--ease-out) forwards;
+  }
+}
+@-webkit-keyframes coming-soon-figure-anim {
+  from {
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+            clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+}
+@keyframes coming-soon-figure-anim {
+  from {
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+            clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+}
 /* -------------------------------- 
 
 File#: _2_comments
