@@ -8,8 +8,7 @@
 
 :root {
   // font family
-  --font-primary: Inter, system-ui, sans-serif;
-  --font-secondary: 'Playfair Display', serif;
+  --font-primary: 'Poppins', sans-serif;
 
   // font size
   --text-base-size: 1rem; // body font-size
@@ -20,8 +19,7 @@
   --heading-line-height: 1.2;
   
   // capital letters - used in combo with the lhCrop mixin
-  --font-primary-capital-letter: 0.85;
-  --font-secondary-capital-letter: 0.85;
+  --font-primary-capital-letter: 1;
 
   // unit - don't modify unless you want to change the typography unit (e.g., from Rem to Em units)
   --text-unit: var(--text-base-size); // if Em units → --text-unit: 1em;
@@ -52,13 +50,12 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   --heading-font-weight: 700;
 }
 
 // font family
 .font-primary { font-family: var(--font-primary); }
-.font-secondary { font-family: var(--font-secondary); }
 
 // --------------------------------
 

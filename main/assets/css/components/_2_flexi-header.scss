@@ -134,11 +134,10 @@ Usage: codyhouse.co/license
   color: var(--color-contrast-high);
   text-decoration: none;
   padding: var(--space-xs) 0;
-  transition: .2s;
 
   &:hover,
   &[aria-current="page"] {
-    opacity: 0.7;
+    color: var(--color-primary);
   }
 }
 
@@ -260,9 +259,10 @@ Usage: codyhouse.co/license
     z-index: var(--z-index-popover, 5); 
 
     /* hide */
+    pointer-events: none;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s .2s, opacity .2s 0s;
+    transition: visibility 0.2s 0.2s, opacity 0.2s 0s;
 
     .f-header__dropdown-control + & {
       display: block; /* reset style */
@@ -270,9 +270,10 @@ Usage: codyhouse.co/license
 
     .f-header__item:hover &,
     .f-header__dropdown-control[aria-expanded="true"] + & {
+      pointer-events: auto;
       visibility: visible;
       opacity: 1;
-      transition: visibility .2s 0s, opacity .2s 0s;
+      transition: visibility 0.2s 0s, opacity 0.2s 0s;
     }
   }
 
