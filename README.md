@@ -1,4 +1,4 @@
-# AppCat corprate marketing website.
+# AppCat corporate marketing website.
 ## Made with CodyFrame
 ## 🐞 Gulp starter template for CodyFrame
 
