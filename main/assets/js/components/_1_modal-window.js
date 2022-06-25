@@ -32,7 +32,7 @@
 						self.closeModal();
 						return;
 					}
-					self.selectedTrigger = event.currentTarget;
+					self.selectedTrigger = event.target;
 					self.showModal();
 					self.initModalEvents();
 				});
@@ -75,6 +75,7 @@
 
 	Modal.prototype.closeModal = function() {
 		if(!Util.hasClass(this.element, this.showClass)) return;
+		console.log('close')
 		Util.removeClass(this.element, this.showClass);
 		this.firstFocusable = null;
 		this.lastFocusable = null;
