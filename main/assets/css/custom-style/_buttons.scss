@@ -79,6 +79,16 @@
   }
 }
 
+.btn--dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn--light {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
 // feedback
 .btn--disabled, .btn[disabled], .btn[readonly] {
   opacity: 0.6;
